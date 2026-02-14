@@ -4,3 +4,6 @@ scikit-learn
 matplotlib
 seaborn
 imbalanced-learn
+streamlit
+sqlalchemy
+psycopg2-binary

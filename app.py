@@ -11,7 +11,7 @@ model = joblib.load('credit_model.joblib')
 # 2. Database Connection
 # Make sure DB_URL is set in your Streamlit/HuggingFace Secrets
 def get_connection():
-    return create_engine(st.secrets["postgresql://neondb_owner:npg_xR7Yrw4GiVJF@ep-autumn-field-ab2su58p-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"])
+    return create_engine(st.secrets["DB_URL"])
 
 # --- UI LAYOUT ---
 st.set_page_config(page_title="Bank Default Monitor", layout="wide")
@@ -81,4 +81,5 @@ with tab2:
         else:
             st.write("No data found in database.")
     except Exception as e:
+
         st.error(f"Could not load dashboard: {e}")
